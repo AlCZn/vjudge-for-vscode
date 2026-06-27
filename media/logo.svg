@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+    <!-- 外框 - V 字形盾牌 -->
+    <path d="M128 8 L240 40 L240 120 C240 186 192 238 128 248 C64 238 16 186 16 120 L16 40 L128 8 Z" 
+          fill="none" 
+          stroke="white" 
+          stroke-width="16" 
+          stroke-linejoin="round"/>
+    
+    <!-- V 字母 -->
+    <polyline points="80 100 128 180 176 100" 
+              fill="none" 
+              stroke="white" 
+              stroke-width="20" 
+              stroke-linecap="round" 
+              stroke-linejoin="round"/>
+    
+    <!-- 对勾 ✓ （代表评测通过） -->
+    <polyline points="100 140 120 160 160 120" 
+              fill="none" 
+              stroke="white" 
+              stroke-width="14" 
+              stroke-linecap="round" 
+              stroke-linejoin="round"/>
+    
+    <!-- 小圆点装饰（代表评测状态点） -->
+    <circle cx="128" cy="210" r="8" fill="white"/>
+    
+    <!-- 底部小横线（代表代码编辑） -->
+    <line x1="88" y1="228" x2="168" y2="228" 
+          stroke="white" 
+          stroke-width="6" 
+          stroke-linecap="round"/>
+</svg>
