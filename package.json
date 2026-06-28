@@ -14,10 +14,112 @@
   "contributes": {
     "commands": [
       {
-        "command": "vjudge-for-vscode.helloWorld",
-        "title": "Hello World"
+        "command": "vjudge.login",
+        "title": "登录",
+        "category": "VJudge"
+      },
+      {
+        "command": "vjudge.logout",
+        "title": "登出",
+        "category": "VJudge"
+      },
+      {
+        "command": "vjudge.checkStatus",
+        "title": "检查登录状态",
+        "category": "VJudge"
+      },
+      {
+        "command": "vjudge.submit",
+        "title": "提交代码",
+        "category": "VJudge"
+      },
+      {
+        "command": "vjudge.selectOJ",
+        "title": "选择 OJ",
+        "category": "VJudge"
+      },
+      {
+        "command": "vjudge.refreshView",
+        "title": "刷新视图",
+        "category": "VJudge"
+      },
+      {
+        "command": "vjudge.openSettings",
+        "title": "打开设置",
+        "category": "VJudge"
       }
-    ]
+    ],
+    "views": {
+      "vjudge-activity": [
+        {
+          "id": "vjudgeView",
+          "name": "VJudge"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "vjudge-activity",
+          "title": "VJudge",
+          "icon": "resources/vjudge-icon.svg"
+        }
+      ]
+    },
+    "menus": {
+      "command-palette": [
+        {
+          "command": "vjudge.login"
+        },
+        {
+          "command": "vjudge.logout"
+        },
+        {
+          "command": "vjudge.checkStatus"
+        },
+        {
+          "command": "vjudge.submit"
+        },
+        {
+          "command": "vjudge.refreshView"
+        },
+        {
+          "command": "vjudge.openSettings"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "vjudge.refreshView",
+          "when": "view == vjudgeView",
+          "group": "navigation"
+        },
+        {
+          "command": "vjudge.openSettings",
+          "when": "view == vjudgeView",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "VJudge",
+      "properties": {
+        "vjudge.defaultOJ": {
+          "type": "string",
+          "default": "HDU",
+          "description": "默认 OJ 平台"
+        },
+        "vjudge.defaultLanguage": {
+          "type": "string",
+          "default": "C++",
+          "description": "默认编程语言"
+        },
+        "vjudge.autoCheckStatus": {
+          "type": "boolean",
+          "default": true,
+          "description": "自动检查提交状态"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
@@ -34,19 +136,24 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.125.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "24.x",
-    "typescript-eslint": "^8.61.1",
-    "eslint": "^10.5.0",
+    "@types/vscode": "^1.125.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0",
     "esbuild": "^0.28.1",
+    "eslint": "^10.5.0",
     "npm-run-all": "^4.1.5",
     "typescript": "^6.0.3",
-    "@vscode/test-cli": "^0.0.15",
-    "@vscode/test-electron": "^3.0.0"
+    "typescript-eslint": "^8.61.1"
   },
   "overrides": {
     "diff": "^8.0.4",
     "serialize-javascript": "^7.0.6"
+  },
+  "dependencies": {
+    "axios": "^1.18.1",
+    "axios-cookiejar-support": "^7.0.0",
+    "tough-cookie": "^6.0.1"
   }
 }
